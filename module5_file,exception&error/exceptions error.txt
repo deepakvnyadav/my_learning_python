@@ -1,0 +1,90 @@
+In Python, **exceptions** are a type of **runtime error** that occur when the program is running and encounters something unexpected.
+
+---
+
+## ✅ What is an Exception?
+
+An **exception** is an event that **disrupts the normal flow** of a program's execution.
+
+For example:
+
+```python
+print(10 / 0)  # ➤ Raises ZeroDivisionError
+```
+
+---
+
+## 🔥 Common Built-in Exception Types
+
+| **Exception**       | **Description**                      | **Example**                      |
+| ------------------- | ------------------------------------ | -------------------------------- |
+| `ZeroDivisionError` | Dividing by zero                     | `10 / 0`                         |
+| `ValueError`        | Invalid value for a valid type       | `int("abc")`                     |
+| `TypeError`         | Operation on incompatible data types | `5 + "5"`                        |
+| `IndexError`        | Index out of range of list or tuple  | `my_list[5]`                     |
+| `KeyError`          | Key not found in a dictionary        | `my_dict["age"]`                 |
+| `NameError`         | Variable is not defined              | `print(x)`                       |
+| `AttributeError`    | Invalid attribute used for an object | `"hello".append("!")`            |
+| `ImportError`       | Import failed                        | `import nonexistingmodule`       |
+| `FileNotFoundError` | File does not exist                  | `open("nofile.txt")`             |
+| `IndentationError`  | Improper indentation                 | Missing or wrong indentation     |
+| `RuntimeError`      | Generic error at runtime             | Custom errors in recursive calls |
+| `RecursionError`    | Maximum recursion depth exceeded     | Infinite recursive function      |
+
+---
+
+## 🛡️ How to Handle Exceptions? — `try...except` block
+
+```python
+try:
+    num = int(input("Enter a number: "))
+    result = 10 / num
+    print("Result:", result)
+except ZeroDivisionError:
+    print("Error: Cannot divide by zero.")
+except ValueError:
+    print("Error: Invalid input. Please enter a number.")
+```
+
+---
+
+## ➕ `else`, `finally` with Exceptions
+
+```python
+try:
+    a = int(input("Enter number: "))
+    print(10 / a)
+except ZeroDivisionError:
+    print("Can't divide by zero")
+else:
+    print("No exception occurred")
+finally:
+    print("This will always execute")
+```
+
+---
+
+## 🛠️ Custom Exceptions (User-defined)
+
+You can define your own exceptions:
+
+```python
+class MyError(Exception):
+    pass
+
+try:
+    raise MyError("This is a custom exception")
+except MyError as e:
+    print(e)
+```
+
+---
+
+## 📌 Summary
+
+* **Exception = Error at runtime**
+* Python gives you many **built-in exceptions**
+* Use `try-except` to handle them
+* You can create **custom exceptions** too
+
+---

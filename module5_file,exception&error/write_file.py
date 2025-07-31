@@ -1,0 +1,10 @@
+file1 = open('write_file.txt','w')
+#statement()
+writing_file = file1.write("Hello World!")
+print(writing_file)
+file1.close()
+
+file1 = open('write_file.txt','r')
+reading_file = file1.read()
+print(reading_file)
+file1.close()

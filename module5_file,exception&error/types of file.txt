@@ -1,0 +1,76 @@
+In Python, **errors** are problems in a program that stop it from running as expected. Errors are mainly divided into two categories:
+
+---
+
+## 🔹 1. **Syntax Errors (Compile-time errors)**
+
+These are errors in the structure of the code. The program won't run until you fix them.
+
+### ✅ Examples:
+
+```python
+# Missing colon
+if 5 > 2
+    print("Yes")
+```
+
+```python
+# Incorrect indentation
+def greet():
+print("Hello")  # should be indented
+```
+
+---
+
+## 🔹 2. **Runtime Errors (Exceptions)**
+
+These occur while the program is running. Python throws an **exception** when it encounters such errors.
+
+### Common Types of Runtime Errors:
+
+| **Error Type**                      | **Description**                                   | **Example**                                |
+| ----------------------------------- | ------------------------------------------------- | ------------------------------------------ |
+| `NameError`                         | Variable not defined                              | `print(x)` when `x` is not defined         |
+| `TypeError`                         | Operation on incompatible data types              | `5 + "hello"`                              |
+| `ValueError`                        | Right type, but invalid value                     | `int("abc")`                               |
+| `ZeroDivisionError`                 | Division by zero                                  | `10 / 0`                                   |
+| `IndexError`                        | Index out of range                                | `my_list[5]` when list has only 3 elements |
+| `KeyError`                          | Dictionary key not found                          | `my_dict["age"]` when "age" not in dict    |
+| `AttributeError`                    | Invalid attribute for an object                   | `"hello".append("!")`                      |
+| `ImportError / ModuleNotFoundError` | Module doesn't exist                              | `import nonexistingmodule`                 |
+| `IndentationError`                  | Wrong indentation                                 | Not properly spaced blocks                 |
+| `FileNotFoundError`                 | Trying to open a non-existing file                | `open("nofile.txt")`                       |
+| `MemoryError`                       | Out of memory                                     | Using very large data                      |
+| `OverflowError`                     | Number too large to be represented                | `math.exp(1000)`                           |
+| `RecursionError`                    | Maximum recursion depth exceeded                  | Recursive function with no stop condition  |
+| `StopIteration`                     | Raised by `next()` when no more items in iterator | Using `next()` on empty iterator           |
+
+---
+
+## 🔹 3. **Logical Errors**
+
+* These don’t produce error messages but give **wrong output** due to flaws in logic.
+
+### ✅ Example:
+
+```python
+# Wrong logic for factorial
+def factorial(n):
+    return n * factorial(n - 1)  # No base case: leads to infinite recursion
+```
+
+---
+
+## 🔧 How to Handle Runtime Errors?
+
+Use **try-except** blocks:
+
+```python
+try:
+    x = int(input("Enter a number: "))
+    print(10 / x)
+except ZeroDivisionError:
+    print("Cannot divide by zero!")
+except ValueError:
+    print("Invalid input! Please enter a number.")
+```

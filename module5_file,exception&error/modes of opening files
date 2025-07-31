@@ -1,0 +1,105 @@
+In Python, files are opened using the built-in `open()` function with different **modes** depending on what you want to do with the file (read, write, append, etc.).
+
+---
+
+## ✅ File Opening Syntax:
+
+```python
+file = open("filename.txt", "mode")
+```
+
+---
+
+## 📂 Modes of Opening Files in Python
+
+| **Mode** | **Description**                           | **Creates File if Not Exist?** | **Overwrites?** | **Reads?** | **Writes?** |
+| -------- | ----------------------------------------- | ------------------------------ | --------------- | ---------- | ----------- |
+| `'r'`    | Read only (default mode)                  | ❌ No                           | ❌ No            | ✅ Yes      | ❌ No        |
+| `'w'`    | Write only (overwrite if file exists)     | ✅ Yes                          | ✅ Yes           | ❌ No       | ✅ Yes       |
+| `'a'`    | Append only (adds content to end of file) | ✅ Yes                          | ❌ No            | ❌ No       | ✅ Yes       |
+| `'x'`    | Create file, fail if it already exists    | ✅ Yes (only if not exist)      | ❌ No            | ❌ No       | ✅ Yes       |
+| `'r+'`   | Read and write (start from beginning)     | ❌ No                           | ❌ No            | ✅ Yes      | ✅ Yes       |
+| `'w+'`   | Write and read (overwrites)               | ✅ Yes                          | ✅ Yes           | ✅ Yes      | ✅ Yes       |
+| `'a+'`   | Append and read                           | ✅ Yes                          | ❌ No            | ✅ Yes      | ✅ Yes       |
+| `'x+'`   | Create file and read/write                | ✅ Yes (only if not exist)      | ❌ No            | ✅ Yes      | ✅ Yes       |
+
+> You can add `'b'` for binary and `'t'` for text mode (default is `'t'`).
+
+---
+
+## 📘 Examples for Each Mode:
+
+### 1. `'r'` — Read Mode
+
+```python
+file = open("example.txt", "r")
+content = file.read()
+print(content)
+file.close()
+```
+
+### 2. `'w'` — Write Mode (Overwrites content)
+
+```python
+file = open("example.txt", "w")
+file.write("Hello, world!")
+file.close()
+```
+
+### 3. `'a'` — Append Mode
+
+```python
+file = open("example.txt", "a")
+file.write("\nThis line is added at the end.")
+file.close()
+```
+
+### 4. `'x'` — Exclusive Creation
+
+```python
+file = open("newfile.txt", "x")
+file.write("This file is newly created.")
+file.close()
+```
+
+### 5. `'r+'` — Read and Write
+
+```python
+file = open("example.txt", "r+")
+print(file.read())      # Read content
+file.write("\nUpdate")  # Add at end
+file.close()
+```
+
+### 6. `'w+'` — Write and Read (overwrites)
+
+```python
+file = open("example.txt", "w+")
+file.write("Overwritten data")
+file.seek(0)
+print(file.read())
+file.close()
+```
+
+### 7. `'a+'` — Append and Read
+
+```python
+file = open("example.txt", "a+")
+file.write("\nAppended again")
+file.seek(0)
+print(file.read())
+file.close()
+```
+
+---
+
+## 🔐 Tips:
+
+* Always **close the file** using `file.close()` or use `with` to auto-close.
+
+```python
+with open("example.txt", "r") as file:
+    content = file.read()
+    print(content)
+------
+------
